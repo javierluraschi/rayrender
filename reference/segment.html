@@ -83,6 +83,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="https://www.tylermw.com/raytracing-lenticular-gifs/">Raytracing Lenticular Gifs with rayrender</a>
+    </li>
+    <li>
       <a href="https://www.tylermw.com/getting-started-with-rayrender/">Getting Stated with Rayrender--Forging the R Sword</a>
     </li>
   </ul>
@@ -177,7 +180,7 @@ Emissive objects may not currently function correctly when scaled.</p></td>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Single row of a tibble describing the sphere in the scene.</p>
+    <p>Single row of a tibble describing the segment in the scene.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -186,7 +189,7 @@ Emissive objects may not currently function correctly when scaled.</p></td>
   <span class='fu'><a href='add_object.html'>add_object</a></span>(<span class='fu'>segment</span>(<span class='kw'>start</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>100</span>, <span class='fl'>100</span>, <span class='fl'>100</span>), <span class='kw'>end</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>455</span>, <span class='fl'>455</span>, <span class='fl'>455</span>), <span class='kw'>radius</span> <span class='kw'>=</span> <span class='fl'>50</span>)) <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='render_scene.html'>render_scene</a></span>(<span class='kw'>lookfrom</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>278</span>, <span class='fl'>278</span>, -<span class='fl'>800</span>) ,<span class='kw'>lookat</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>278</span>, <span class='fl'>278</span>, <span class='fl'>0</span>), <span class='kw'>fov</span> <span class='kw'>=</span> <span class='fl'>40</span>,
                <span class='kw'>ambient_light</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>samples</span> <span class='kw'>=</span> <span class='fl'>400</span>, <span class='kw'>parallel</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>clamp_value</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><div class='img'><img src='segment-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># Draw a line graph representing a normal distribution, but with gold:</span>
+<span class='co'># Draw a line graph representing a normal distribution, but with metal:</span>
 <span class='no'>xvals</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(-<span class='fl'>3</span>, <span class='fl'>3</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>30</span>)
 <span class='no'>yvals</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>dnorm</a></span>(<span class='no'>xvals</span>)
 
@@ -223,7 +226,7 @@ Emissive objects may not currently function correctly when scaled.</p></td>
   <span class='fu'><a href='add_object.html'>add_object</a></span>(<span class='fu'><a href='group_objects.html'>group_objects</a></span>(<span class='no'>cube_outline</span>, <span class='kw'>pivot_point</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>555</span>/<span class='fl'>2</span>, <span class='fl'>555</span>/<span class='fl'>2</span>, <span class='fl'>555</span>/<span class='fl'>2</span>),
                            <span class='kw'>group_angle</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>45</span>,<span class='fl'>45</span>,<span class='fl'>45</span>), <span class='kw'>group_scale</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0.5</span>,<span class='fl'>0.5</span>,<span class='fl'>0.5</span>))) <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='render_scene.html'>render_scene</a></span>(<span class='kw'>lookfrom</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>278</span>, <span class='fl'>278</span>, -<span class='fl'>800</span>) ,<span class='kw'>lookat</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>278</span>, <span class='fl'>278</span>, <span class='fl'>0</span>), <span class='kw'>fov</span> <span class='kw'>=</span> <span class='fl'>40</span>,
-               <span class='kw'>ambient_light</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>samples</span> <span class='kw'>=</span> <span class='fl'>40</span>, <span class='kw'>parallel</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>clamp_value</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><div class='img'><img src='segment-4.png' alt='' width='700' height='433' /></div></pre>
+               <span class='kw'>ambient_light</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>samples</span> <span class='kw'>=</span> <span class='fl'>400</span>, <span class='kw'>parallel</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>clamp_value</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><div class='img'><img src='segment-4.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
