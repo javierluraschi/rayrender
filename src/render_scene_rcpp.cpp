@@ -333,11 +333,6 @@ List render_scene_rcpp(int nx, int ny, int ns, float fov, bool ambient_light,
         }
       }
     } else {
-      std::vector<unsigned int> 
-        (ny);
-      for(int i = 0; i < ny; i++) {
-        seeds[i] = unif_rand() * pow(2,32);
-      }
       RcppThread::ThreadPool pool(numbercores);
       auto worker = [&routput, &goutput, &boutput,
                      ambient_light, nx, ny, ns,
@@ -391,6 +386,12 @@ List render_scene_rcpp(int nx, int ny, int ns, float fov, bool ambient_light,
           }
         }
       };
+      
+      std::vector<unsigned int> seeds(ny);
+      for(int i = 0; i < ny; i++) {
+        seeds[i] = unif_rand() * pow(2,32);
+      }
+      
       for(int j = ny - 1; j >= 0; j--) {
         pool.push(worker,j,seeds[j]);
       }
