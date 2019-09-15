@@ -339,7 +339,7 @@ List render_scene_rcpp(int nx, int ny, int ns, float fov, bool ambient_light,
       }
       RcppThread::ThreadPool pool(numbercores);
       auto worker = [&routput, &goutput, &boutput,
-                     ambient_light, nx, ny, ns, seeds,
+                     ambient_light, nx, ny, ns, &seeds,
                      &cam, backgroundhigh, backgroundlow, &world, &hlist,
                      numbertosample, clampval, toneval, progress_bar, numbercores, background_texture] (int j) {
       // auto worker = [nx, ns] (int j) {
