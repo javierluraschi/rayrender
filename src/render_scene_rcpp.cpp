@@ -333,21 +333,22 @@ List render_scene_rcpp(int nx, int ny, int ns, float fov, bool ambient_light,
         }
       }
     } else {
-      std::vector<unsigned int> seeds(ny);
+      std::vector<unsigned int> 
+        (ny);
       for(int i = 0; i < ny; i++) {
         seeds[i] = unif_rand() * pow(2,32);
       }
       RcppThread::ThreadPool pool(numbercores);
       auto worker = [&routput, &goutput, &boutput,
-                     ambient_light, nx, ny, ns, &seeds,
+                     ambient_light, nx, ny, ns,
                      &cam, backgroundhigh, backgroundlow, &world, &hlist,
-                     numbertosample, clampval, toneval, progress_bar, numbercores, background_texture] (int j) {
+                     numbertosample, clampval, toneval, progress_bar, numbercores, background_texture] (int j, unsigned int seed) {
       // auto worker = [nx, ns] (int j) {
         if(progress_bar && j % numbercores == 0) {
           RcppThread::Rcout << "Progress (" << numbercores << " cores): ";
           RcppThread::Rcout << (int)((1-(double)j/double(ny)) * 100) << "%\r";
         }
-        random_gen rng(seeds[j]);
+        random_gen rng(seed);
         for(int i = 0; i < nx; i++) {
           vec3 col(0,0,0);
           for(int s = 0; s < ns; s++) {
@@ -391,7 +392,7 @@ List render_scene_rcpp(int nx, int ny, int ns, float fov, bool ambient_light,
         }
       };
       for(int j = ny - 1; j >= 0; j--) {
-        pool.push(worker,j);
+        pool.push(worker,j,seeds[j]);
       }
       pool.join();
     }
